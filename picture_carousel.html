@@ -7,34 +7,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-  <style>
-  .carousel-inner > .item > img,
-  .carousel-inner > .item > a > img {
-    width: 50%;
-    margin-top: 5%;
-    margin-right: auto;
-    margin-bottom: auto;
-    margin-left: auto;
-    
-  }
-.carousel-caption {
-    position: relative;
-    left: 0;
-    right: 0;
-    color: black;
-}
-.carousel-indicators li {
-  background-color: #999;
-  background-color: rgba(70, 70, 70, 0.25);
-}
-
-.carousel-indicators .active {
-  background-color: #444;
-}
-/* .carousel-indicators {
-  top: 50px;
-} */
-  </style>
+  <link rel="stylesheet" href="./css/carousel.css" />
 </head>
 <body>
 
@@ -48,39 +21,6 @@
 
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
-
-      <div class="item active">
-        <img src="images/group1/IMG_0059.JPG" alt="Ocotillo1" width="460" height="345" style="transform:rotate(90deg);">
-        <!-- <img src="images/group1/IMG_0059.JPG" alt="Ocotillo1" width="460" height="345" style="transform:rotate(90deg);"> -->
-        <div class="carousel-caption bg-dark mb-4">
-            <h3>Ocotillo</h3>
-            <p>Octotillo in Borrego dessert.</p>
-        </div>
-      </div>
-
-      <div class="item">
-        <img src="images/group1/IMG_0062.JPG" alt="Ocotillo2" width="460" height="345" style="transform:rotate(90deg);">
-        <div class="carousel-caption bg-dark mb-4">
-            <h3>Ocotillo</h3>
-            <p>Octotillo in Borrego dessert.</p>
-        </div>
-      </div>
-    
-      <div class="item">
-        <img src="images/group1/IMG_0064.JPG" alt="Catus Flower" width="460" height="345">
-        <div class="carousel-caption bg-dark mb-4">
-            <h3>Catus Flower</h3>
-            <p>Catus flower in Borrego dessert.</p>
-        </div>
-      </div>
-
-      <div class="item">
-        <img src="images/group1/IMG_0095.JPG" alt="Mountains" width="460" height="345">
-        <div class="carousel-caption bg-dark mb-4">
-            <h3>Mountains</h3>
-            <p>Moutains in Borrego dessert.</p>
-        </div>
-      </div>
     </div>
 
     <!-- Indicators -->
@@ -103,61 +43,10 @@
   </div>
 </div>
 
-<script>
-$(document).ready(function(){
-  // Activate Carousel
-  $("#myCarousel").carousel("pause");
-
-  // Click on the button to start sliding 
-  $("#myBtn").click(function(){
-    $("#myCarousel").carousel("cycle");
-  });
-
-  // Click on the button to stop sliding 
-  $("#myBtn2").click(function(){
-    $("#myCarousel").carousel("pause");
-  });
-    
-  // Enable Carousel Indicators
-  $(".item1").click(function(){
-    $("#myCarousel").carousel(0);
-  });
-  $(".item2").click(function(){
-    $("#myCarousel").carousel(1);
-  });
-  $(".item3").click(function(){
-    $("#myCarousel").carousel(2);
-  });
-  $(".item4").click(function(){
-    $("#myCarousel").carousel(3);
-  });
-    
-  // Enable Carousel Controls
-  $(".left").click(function(){
-    $("#myCarousel").carousel("prev");
-  });
-  $(".right").click(function(){
-    $("#myCarousel").carousel("next");
-  });
-
-  // Enable swiping of the pictures
-  $(".carousel").on("touchstart", function(event){
-        var xClick = event.originalEvent.touches[0].pageX;
-    $(this).one("touchmove", function(event){
-        var xMove = event.originalEvent.touches[0].pageX;
-        if( Math.floor(xClick - xMove) > 5 ){
-            $(this).carousel('next');
-        }
-        else if( Math.floor(xClick - xMove) < -5 ){
-            $(this).carousel('prev');
-        }
-    });
-    $(".carousel").on("touchend", function(){
-            $(this).off("touchmove");
-    });
-});
-});
-</script>
+<!-- Picture file for group1 --> 
+<script src="./js/picturesGroup1.js"></script>
+<!-- js logic for carousel --> 
+<script src="./js/carousel.js"></script>
 
 </body>
 </html>
