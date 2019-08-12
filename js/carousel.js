@@ -13,18 +13,36 @@ $(document).ready(function(){
     });
       
     // Enable Carousel Indicators
-    $(".item1").click(function(){
-      $("#myCarousel").carousel(0);
+
+    
+    //$("li").on("click", function(e) {
+    //$(".itemIndicator").on("click", function(e) {
+      $(".indicator").on("click", function(e) {
+      //$("li").on("click", function(e) {
+      console.log("Indicator clicked");
+      console.log("Current target id: " + e.currentTarget.id);
+      var idAttr = e.currentTarget.id;
+      console.log("idAtrr: " + idAttr);
+
+      var match = /\d+/.exec(idAttr);
+      idNumber = Number(match[0]);
+
+      $("#myCarousel").carousel(idNumber - 1);
     });
-    $(".item2").click(function(){
-      $("#myCarousel").carousel(1);
-    });
-    $(".item3").click(function(){
-      $("#myCarousel").carousel(2);
-    });
-    $(".item4").click(function(){
-      $("#myCarousel").carousel(3);
-    });
+
+
+    // $(".item1").click(function(){
+    //   $("#myCarousel").carousel(0);
+    // });
+    // $(".item2").click(function(){
+    //   $("#myCarousel").carousel(1);
+    // });
+    // $(".item3").click(function(){
+    //   $("#myCarousel").carousel(2);
+    // });
+    // $(".item4").click(function(){
+    //   $("#myCarousel").carousel(3);
+    // });
       
     // Enable Carousel Controls
     $(".left").click(function(){
@@ -52,37 +70,60 @@ $(document).ready(function(){
   });
   
   // Creating the item elements
-      var pictureArray = PicGrp1.pictures;
-      pictureArray.forEach(function(picture, index) {
-      // Item Div
-      var $carouselInner = $('.carousel-inner');
-      var $itemDiv = $('<div></div>');
-      $itemDiv.addClass('item');
-      if (index == 0) {
-        $itemDiv.addClass('active');
-      }
-      $carouselInner.append($itemDiv);
+  var pictureArray = PicGrp1.pictures;
+  pictureArray.forEach(function(picture, index) {
+    // Item Div
+    var $carouselInner = $('.carousel-inner');
+    var $itemDiv = $('<div></div>');
+    $itemDiv.addClass('item');
+    if (index == 0) {
+      $itemDiv.addClass('active');
+    }
+    $carouselInner.append($itemDiv);
 
-      // Image tag
-      var $img = $('<img/>');
-      $img.attr('src', picture.imageUrl);
-      $img.attr('alt', picture.title);
-      $img.attr('width', picture.width);
-      $img.attr('height', picture.height);
-      var rotateTxt = "transform:rotate(" + picture.rotate + "deg);"
-      $img.attr('style', rotateTxt);
-      $itemDiv.append($img);
+    // Image tag
+    var $img = $('<img/>');
+    $img.attr('src', picture.imageUrl);
+    $img.attr('alt', picture.title);
+    $img.attr('width', picture.width);
+    $img.attr('height', picture.height);
+    var rotateTxt = "transform:rotate(" + picture.rotate + "deg);"
+    $img.attr('style', rotateTxt);
+    $itemDiv.append($img);
 
-      var $captionDiv = $('<div class="carousel-caption bg-dark mb-4"></div>');
-      $itemDiv.append($captionDiv);
+    var $captionDiv = $('<div class="carousel-caption bg-dark mb-4"></div>');
+    $itemDiv.append($captionDiv);
 
-      var $titleHeading = $('<h3>' + picture.title + '</h3>');
-      $captionDiv.append($titleHeading);
+    var $titleHeading = $('<h3>' + picture.title + '</h3>');
+    $captionDiv.append($titleHeading);
 
-      var $author = $('<p>' + picture.author + '</p>');
-      $captionDiv.append($author);
+    var $author = $('<p>' + picture.author + '</p>');
+    $captionDiv.append($author);
+
+    // Creating Indicators
+    var $carouselIndicators = $('.carousel-indicators');
+    var $indicatorli = $('<li></li>');
+    var ItemClass = "indicator";
+    var idIndicator = "idItem" + (index + 1);
+    $indicatorli.addClass(ItemClass);
+    $indicatorli.attr('id', idIndicator);
+    if (index == 0) {
+      $indicatorli.addClass('active');
+    }
+    $carouselIndicators.append($indicatorli);
+    
+    
 
 
+
+  });
+
+  console.log("Carousel JS");
+    var $itemIndicator = $(".itemIndicator");
+
+    $itemIndicator.each(function() {
+      var ids = this.id;
+      console.log("ids: " + ids);
     });
 
 });
