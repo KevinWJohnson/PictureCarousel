@@ -1,4 +1,26 @@
 /*****************Styles*********************/
+.container {
+  width: 90%;
+  height: 50%;
+}
+#buttonContainer {
+    text-align: right;
+}
+
+button {
+    display: inline-block;
+}
+.divider{
+  width:5px;
+  height:auto;
+  display:inline-block;
+}
+.navbar-nav.navbar-center {
+  position: absolute;
+  left: 50%;
+  transform: translatex(-50%);
+  font-size: 24px;
+}
   .carousel-inner > .item > img,
   .carousel-inner > .item > a > img {
     width: 50%;
@@ -7,6 +29,9 @@
     margin-bottom: auto;
     margin-left: auto;
     border:3px solid black;
+  }
+  .carousel-control {
+    background-color: orange;
   }
 .carousel-caption {
     position: relative;

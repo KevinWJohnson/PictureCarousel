@@ -3,7 +3,7 @@ $(document).ready(function(){
     $("#myCarousel").carousel("pause");
   
     // Click on the button to start sliding 
-    $("#myBtn").click(function(){
+    $("#myBtn1").click(function(){
       $("#myCarousel").carousel("cycle");
     });
   
@@ -13,10 +13,6 @@ $(document).ready(function(){
     });
       
     // Enable Carousel Indicators
-
-    
-    //$("li").on("click", function(e) {
-      //$(".indicator").on("click", function(e) {
       $(".carousel-indicators").on("click", ".indicator", function(e) {
       console.log("Indicator clicked");
       console.log("Current target id: " + e.currentTarget.id);
@@ -28,20 +24,6 @@ $(document).ready(function(){
       console.log("Current idNumber: " + idNumber);
       $("#myCarousel").carousel(idNumber - 1);
     });
-
-
-    // $(".item1").click(function(){
-    //   $("#myCarousel").carousel(0);
-    // });
-    // $(".item2").click(function(){
-    //   $("#myCarousel").carousel(1);
-    // });
-    // $(".item3").click(function(){
-    //   $("#myCarousel").carousel(2);
-    // });
-    // $(".item4").click(function(){
-    //   $("#myCarousel").carousel(3);
-    // });
       
     // Enable Carousel Controls
     $(".left").click(function(){
@@ -66,7 +48,7 @@ $(document).ready(function(){
       $(".carousel").on("touchend", function(){
               $(this).off("touchmove");
       });
-  });
+    });
   
   // Creating the item elements
   var pictureArray = PicGrp1.pictures;
@@ -111,10 +93,6 @@ $(document).ready(function(){
     }
     $carouselIndicators.append($indicatorli);
     
-    
-
-
-
   });
 
   console.log("Carousel JS");
