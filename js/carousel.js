@@ -16,9 +16,8 @@ $(document).ready(function(){
 
     
     //$("li").on("click", function(e) {
-    //$(".itemIndicator").on("click", function(e) {
-      $(".indicator").on("click", function(e) {
-      //$("li").on("click", function(e) {
+      //$(".indicator").on("click", function(e) {
+      $(".carousel-indicators").on("click", ".indicator", function(e) {
       console.log("Indicator clicked");
       console.log("Current target id: " + e.currentTarget.id);
       var idAttr = e.currentTarget.id;
@@ -26,7 +25,7 @@ $(document).ready(function(){
 
       var match = /\d+/.exec(idAttr);
       idNumber = Number(match[0]);
-
+      console.log("Current idNumber: " + idNumber);
       $("#myCarousel").carousel(idNumber - 1);
     });
 
